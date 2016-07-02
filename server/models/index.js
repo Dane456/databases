@@ -8,7 +8,7 @@ module.exports = {
       var message = {username: 'ELLO', content: 'POPPET'};
       //console.log('con', con);
       con.con.query('INSERT INTO messages SET ?', message, function(err, res) {
-        if (err) throw err;
+        if (err) { throw err; }
 
         console.log('Last insert ID:', res.insertId, res);
       });
@@ -18,7 +18,15 @@ module.exports = {
   users: {
     // Ditto as above.
     get: function () {},
-    post: function () {}
+    post: function () {
+      var message = {username: 'ELLO', content: 'USERSPOPPET'};
+      //console.log('con', con);
+      con.con.query('INSERT INTO messages SET ?', message, function(err, res) {
+        if (err) { throw err; }
+
+        console.log('Last insert ID:', res.insertId, res);
+      });
+    }
   }
 };
 
