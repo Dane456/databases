@@ -1,33 +1,28 @@
 var mysql = require('mysql');
-var router = require('../routes.js');
-var controller = require('../controllers');
+var request = require('request');
 
 // Create a database connection and export it from this file.
 // You will need to connect with the user "root", no password,
 // and to the database "chat".
 
 
-exports.con = mysql.createConnection({
+var con = mysql.createConnection({
   user: 'root',
   password: 'daneil',
   database: 'chat'
 });
 
 
-exports.con.connect(function(err) {
-  if(err) {
+con.connect(function(err) {
+  if (err) {
     console.log('Error connecting to Db');
     return;
   }
   console.log('Connection established');
 });
 
-// console.log('exports con', con);
 
-// exports.con.end(function(err) {
-//   // The connection is terminated gracefully
-//   // Ensures all previously enqueued queries are still
-//   // before sending a COM_QUIT packet to the MySQL server.
-// });
+module.exports = con;
 
-// exports.con = con;
+
+
